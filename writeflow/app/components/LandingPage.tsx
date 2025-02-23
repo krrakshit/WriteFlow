@@ -1,81 +1,96 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import React from 'react';
+import { Zap, FileText, Search,History, Star, Globe, Shield } from 'lucide-react';
+import Link from 'next/link';
 
-export default function LandingPage() {
+function Dashboard() {
   return (
-    <div className="min-h-screen bg-[#F0FDF4] text-gray-900">
-      {/* Hero Section */}
-      <section className="text-center py-20 bg-[#D1FAE5] text-gray-900">
-        <h1 className="text-4xl font-bold">AI-Powered Website Content Generator</h1>
-        <p className="mt-4 text-lg">Create SEO-optimized, high-quality content effortlessly with ContentCraft AI.</p>
-        <Button className="mt-6 bg-white text-[#16A34A] hover:bg-gray-200">Get Started</Button>
-      </section>
-     
-      <section className="py-20 px-6 max-w-5xl mx-auto">
-        <h2 className="text-3xl font-semibold text-center mb-10 text-[#166534]">Why Choose WriteFlow?</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-            { title: "AI-Powered Content", desc: "Generate high-quality content instantly."},
-            { title: "SEO Optimization", desc: "Boost rankings with AI-driven keyword suggestions."},
-            { title: "Custom Templates", desc: "Use pre-built templates for different content types." },
-            { title: "Export & Publish", desc: "Save or publish directly to your CMS." },
-            { title: "Auto-Save & History", desc: "Never lose progress with auto-save features." },
-            { title: "Freemium Model", desc: "Free tier with premium AI features." },
-            { title: "Plagiarism Checker", desc: "Ensure originality with AI-powered scanning." },
-            { title: "WordPress Integration", desc: "Seamlessly publish to WordPress and other CMS platforms." },
-            { title: "Multi-Language Support", desc: "Generate content in multiple languages." }
-          ].map((feature, index) => (
-            <Card key={index} className="shadow-lg border border-[#A7F3D0] bg-white">
-              <CardHeader>
-                <CardTitle className="text-[#166534]">{feature.title}</CardTitle>
-              </CardHeader>
-              <CardContent>{feature.desc}</CardContent>
-            </Card>
-          ))}
+    <div className="min-h-screen bg-[#0A0A0A] text-white">
+      {/* Header */}
+      <header className="border-b border-[#1a1a1a] p-4 fixed w-full bg-[#0A0A0A] z-10">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Zap className="w-6 h-6 text-[#3b82f6]" />
+            <h1 className="text-xl font-semibold">WriteFlow</h1>
+          </div>
+          <Link href="/dashboard">
+          <button className="px-4 py-2 bg-[#3b82f6] text-white rounded-lg hover:bg-[#2563eb] transition-colors">
+            Get Started
+          </button>
+          </Link>
+        </div>
+      </header>
+
+      <section className="pt-32 pb-20 text-center px-4">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-5xl font-bold mb-6">
+            AI-Powered Website Content Generator
+          </h1>
+          <p className="text-xl text-gray-400 mb-8">
+            Create SEO-optimized, high-quality content effortlessly with  AI.
+          </p>
+          <Link href="/dashboard">
+          
+          <button className="px-8 py-4 bg-[#3b82f6] text-white rounded-lg text-lg font-medium hover:bg-[#2563eb] transition-colors">
+            Get Started
+          </button>
+          </Link>
         </div>
       </section>
 
-      <section className="py-20 bg-[#ECFDF5] text-center">
-        <h2 className="text-3xl font-semibold mb-10 text-[#166534]">Choose Your Plan</h2>
-        <div className="flex flex-col md:flex-row justify-center gap-6">
-          {[{ plan: "Free", price: "$0/mo", features: ["Limited content", "Basic AI tools"] },
-            { plan: "Pro", price: "$2/mo", features: ["Unlimited content", "SEO analysis", "Export to CMS"] },
-            { plan: "Enterprise", price: "$3/mo", features: ["Team collaboration", "Custom AI models", "Dedicated support"] }
-          ].map((tier, index) => (
-            <Card key={index} className="w-80 shadow-lg border border-[#A7F3D0] bg-white">
-              <CardHeader>
-                <CardTitle className="text-[#166534]">{tier.plan}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-xl font-bold">{tier.price}</p>
-                <ul className="mt-4">
-                  {tier.features.map((feature, i) => (
-                    <li key={i} className="text-gray-700">• {feature}</li>
-                  ))}
-                </ul>
-                <Button className="mt-4 w-full bg-[#16A34A] text-white hover:bg-[#166534]">Choose {tier.plan}</Button>
-              </CardContent>
-            </Card>
-          ))}
+      {/* Features Section */}
+      <section className="py-20 px-4 bg-[#111111]">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Why Choose WriteFlow?</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { icon: FileText, title: "AI-Powered Content", desc: "Generate high-quality content instantly." },
+              { icon: Search, title: "SEO Optimization", desc: "Boost rankings with AI-driven keyword suggestions." },
+              { icon: History, title: "Auto-Save & History", desc: "Never lose progress with auto-save features." },
+              { icon: Star, title: "Freemium Model", desc: "Free tier with premium AI features." },
+              { icon: Shield, title: "Plagiarism Checker", desc: "Ensure originality with AI-powered scanning." },
+              { icon: Globe, title: "Multi-Language Support", desc: "Generate content in multiple languages." }
+            ].map((feature, index) => (
+              <div key={index} className="bg-[#1a1a1a] p-6 rounded-xl">
+                <feature.icon className="w-10 h-10 text-[#3b82f6] mb-4" />
+                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                <p className="text-gray-400">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
-      <section className="py-20 px-6 max-w-5xl mx-auto">
-        <h2 className="text-3xl font-semibold text-center mb-10 text-[#166534]">What Our Users Say</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {["This tool saved me hours of content writing!", "SEO scores improved instantly!", "Best AI content tool out there!", "Publishing to WordPress has never been easier!", "Multi-language support is a game changer!"].map((quote, index) => (
-            <Card key={index} className="shadow-lg p-6 border border-[#A7F3D0] bg-white">
-              <CardContent>{quote}</CardContent>
-            </Card>
-          ))}
+      <section className="py-20 px-4 bg-[#111111]">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">What Our Users Say</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              "This tool saved me hours of content writing!",
+              "SEO scores improved instantly!",
+              "Best AI content tool out there!",
+              "Multi-language support is a game changer!"
+            ].map((quote, index) => (
+              <div key={index} className="bg-[#1a1a1a] p-6 rounded-xl">
+                <p className="text-gray-300">{quote}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Call-to-Action (CTA) */}
-      <section className="text-center py-20 bg-[#D1FAE5] text-gray-900">
-        <h2 className="text-3xl font-bold">Start Creating with AI Today!</h2>
-        <p className="mt-4 text-lg">Join thousands of creators and businesses using Writeflow</p>
-        <Button className="mt-6 bg-white text-[#16A34A] hover:bg-gray-200">Get Started for Free</Button>
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-[#0A0A0A] border-t border-[#1a1a1a]">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">Start Creating with AI Today!</h2>
+          <p className="text-xl text-gray-400 mb-8">Join thousands of creators and businesses using Writeflow</p>
+          <Link href="/dashboard">
+          <button className="px-8 py-4 bg-[#3b82f6] text-white rounded-lg text-lg font-medium hover:bg-[#2563eb] transition-colors">
+            Get Started for Free
+          </button>
+          </Link>
+        </div>
       </section>
     </div>
   );
 }
+
+export default Dashboard;

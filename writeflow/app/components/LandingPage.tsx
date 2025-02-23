@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function LandingPage() {
@@ -9,17 +8,15 @@ export default function LandingPage() {
       <section className="text-center py-20 bg-[#D1FAE5] text-gray-900">
         <h1 className="text-4xl font-bold">AI-Powered Website Content Generator</h1>
         <p className="mt-4 text-lg">Create SEO-optimized, high-quality content effortlessly with ContentCraft AI.</p>
-        <Link href="/signup">
         <Button className="mt-6 bg-white text-[#16A34A] hover:bg-gray-200">Get Started</Button>
-        </Link>
       </section>
-
+     
       <section className="py-20 px-6 max-w-5xl mx-auto">
         <h2 className="text-3xl font-semibold text-center mb-10 text-[#166534]">Why Choose WriteFlow?</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { title: "AI-Powered Content", desc: "Generate high-quality content instantly." },
-            { title: "SEO Optimization", desc: "Boost rankings with AI-driven keyword suggestions." },
+              {[
+            { title: "AI-Powered Content", desc: "Generate high-quality content instantly."},
+            { title: "SEO Optimization", desc: "Boost rankings with AI-driven keyword suggestions."},
             { title: "Custom Templates", desc: "Use pre-built templates for different content types." },
             { title: "Export & Publish", desc: "Save or publish directly to your CMS." },
             { title: "Auto-Save & History", desc: "Never lose progress with auto-save features." },
